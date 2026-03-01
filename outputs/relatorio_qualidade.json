@@ -1,0 +1,104 @@
+{
+  "pipeline_info": {
+    "nome": "DataQualityPipeline v1.0",
+    "dataset": "sensores_subestacao_2024",
+    "data_exec": "2026-02-28 22:40:36",
+    "duracao_s": 0.119
+  },
+  "metricas_qualidade": {
+    "registros_raw": 8100,
+    "registros_finais": 8000,
+    "retencao_pct": 98.77,
+    "completude_pct": 100.0,
+    "n_colunas": 20,
+    "etapas_pipeline": 10
+  },
+  "log_transformacoes": [
+    {
+      "etapa": "INIT",
+      "descricao": "Dataset carregado: 8,100 linhas × 8 colunas",
+      "registros_afetados": 0,
+      "timestamp": "22:39:58"
+    },
+    {
+      "etapa": "Stage 1",
+      "descricao": "Validação de schema OK — todos os campos presentes",
+      "registros_afetados": 0,
+      "timestamp": "22:39:58"
+    },
+    {
+      "etapa": "Stage 2",
+      "descricao": "Duplicatas removidas",
+      "registros_afetados": 100,
+      "timestamp": "22:39:58"
+    },
+    {
+      "etapa": "Stage 3",
+      "descricao": "Nulos tratados por coluna",
+      "registros_afetados": 597,
+      "timestamp": "22:39:58"
+    },
+    {
+      "etapa": "Stage 4",
+      "descricao": "Outliers tratados (iqr/winsorize)",
+      "registros_afetados": 354,
+      "timestamp": "22:39:58"
+    },
+    {
+      "etapa": "Stage 5",
+      "descricao": "Regra 'tensao_invalida' → 0 violações",
+      "registros_afetados": 0,
+      "timestamp": "22:39:58"
+    },
+    {
+      "etapa": "Stage 5",
+      "descricao": "Regra 'corrente_negativa' → 0 violações",
+      "registros_afetados": 0,
+      "timestamp": "22:39:58"
+    },
+    {
+      "etapa": "Stage 5",
+      "descricao": "Regra 'temp_alta_sem_alarme' → 0 violações",
+      "registros_afetados": 0,
+      "timestamp": "22:39:58"
+    },
+    {
+      "etapa": "Stage 6",
+      "descricao": "Normalização minmax aplicada a ['tensao_kv', 'corrente_a', 'potencia_mw', 'temperatura_c']",
+      "registros_afetados": 0,
+      "timestamp": "22:39:58"
+    },
+    {
+      "etapa": "Stage 7",
+      "descricao": "Features temporais e cíclicas criadas",
+      "registros_afetados": 0,
+      "timestamp": "22:39:58"
+    }
+  ],
+  "estatisticas_finais": {
+    "tensao_kv": {
+      "media": 138.036,
+      "std": 2.5092,
+      "min": 131.4342,
+      "max": 144.6683
+    },
+    "corrente_a": {
+      "media": 447.8606,
+      "std": 79.6235,
+      "min": 240.7125,
+      "max": 656.4325
+    },
+    "potencia_mw": {
+      "media": 94.9773,
+      "std": 17.8636,
+      "min": 6.434,
+      "max": 161.652
+    },
+    "temperatura_c": {
+      "media": 42.0448,
+      "std": 6.0886,
+      "min": 25.8125,
+      "max": 58.3125
+    }
+  }
+}

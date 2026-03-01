@@ -1,1 +1,0 @@
-# projeto_pipeline_qualidade
